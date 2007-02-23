@@ -1,3 +1,5 @@
+import(graphics)
+importFrom(stats,wilcox.test)
 export(howmany,howmany_dependent,lowerbound)
 S3method(print,howmany)
 S3method(summary,howmany)

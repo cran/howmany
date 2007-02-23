@@ -1,7 +1,7 @@
 "howmany_dependent" <-
 function(X,Y,alpha=0.05,test=wilcox.test,alternative="two.sided",n.permutation=round(20/alpha))
   {
-
+   
     if(length(dim(X))!=2) stop(" dimension of X must have length 2\n ")
     if(nrow(X)!=length(Y)) stop(" number of rows of X must match length of Y\n ")
     ##check binary class variable Y
@@ -46,6 +46,7 @@ function(X,Y,alpha=0.05,test=wilcox.test,alternative="two.sided",n.permutation=r
     howmany$alpha <- alpha
     howmany$boundingfunction <- boundingfunction
     howmany$lowerbound <- lowerbound
+    howmany$m <- length(pvalues)
     class(howmany) <- "howmany"
     return(howmany)
   }

@@ -7,13 +7,14 @@
   test statistics.
 }
 \usage{
-howmany(pvalues, alpha = 0.05, cutoff = 0.05/length(pvalues))
+howmany(pvalues, alpha = 0.05, cutoff = 0.05/length(pvalues),m=length(pvalues))
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{pvalues}{ a numeric vector of p-values  }
   \item{alpha}{ the level, a scalar in [0,1]}
   \item{cutoff}{ a scalar in [0,1] }
+  \item{m}{ total number of tests made}
 }
 \details{
   When testing multiple hypotheses simultaneously (test statistics are
@@ -29,6 +30,8 @@ howmany(pvalues, alpha = 0.05, cutoff = 0.05/length(pvalues))
   hypotheses). To ensure better small sample behaviour, it is
   recommended to truncate p-values by setting a non-zero value of \code{cutoff}.
   For a value c of \code{cutoff}, p-values below c are set to c.
+
+  For computational efficiency, only the most significant p-values can be supplied and the total number of tests made must then be given with the argument \code{m}.
   
 }
 \value{
@@ -64,7 +67,7 @@ tests of associations, where test statistics can be dependent.}
 ##  (1000 true null hypotheses),
 ##  and 200 follow a (truncated) chi-squared distribution
 ##  (200 false null hypotheses).
-pvalues <- c(   runif(1000),   pmin(1,0.05*rchisq(200,df=1))  )
+pvalues <- c(   runif(300),   pmin(1,0.05*rchisq(50,df=1))  )
 
 ## compute object of class 'howmany' and print the result
 (object <- howmany(pvalues))

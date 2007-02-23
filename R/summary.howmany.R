@@ -1,7 +1,8 @@
 "summary.howmany" <-
 function(object,...)
   {
-    m <- length(object$pvalues)
+    m <- object$m
+    m0 <- length(object$pvalues)
     lower <- max(object$lowerbound)
     maxabs <- which.max(object$lowerbound)
     switch(min(3,lower+1),
@@ -15,8 +16,8 @@ function(object,...)
            },
            {
              cat("\n Multiple testing of ",m," hypotheses. \n \n At confidence level ",1-object$alpha, ", there are at least ", lower," correct rejections \n (all among the first ", maxabs  ," rejections). \n \n ",sep="")
-             proportion <- object$lowerbound/(1:m)
-             maxprop <- max((1:m)[proportion==max(proportion)])
+             proportion <- object$lowerbound/(1:m0)
+             maxprop <- max((1:m0)[proportion==max(proportion)])
              if( maxprop>0 &  (object$lowerbound[maxprop]/maxprop)>1.2* (lower/maxabs)  )
                {
                  if(maxprop>1)
