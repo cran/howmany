@@ -19,7 +19,7 @@ function(X,Y,alpha,test,alternative,at=(1:1000)/1000,n.permutation=round(20/alph
       }
     cat("  \n")
     Quantile <- Testall
-    for (p in 1:m) Quantile[,p] <- sample(Quantile[,p],m)
+    #for (p in 1:m) Quantile[,p] <- sample(Quantile[,p],n.permutation)
     for (perm in 1:n.permutation) Quantile[perm,] <- sort(Quantile[perm,])
     for (p in 1:m) Quantile[,p] <- sort(Quantile[,p])
     

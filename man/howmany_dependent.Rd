@@ -48,14 +48,14 @@ howmany_dependent(X, Y, alpha = 0.05, test = wilcox.test,
   The lower bound for the number of correct rejections (as a function of
   the number of rejections) can be accessed with the function \code{\link{lowerbound}}.
 }
-\references{ N. Meinshausen and J. Rice (2006) 
+\references{N. Meinshausen and J. Rice (2006) 
 "Estimating the proportion of false discoveries among a large number of independently
   tested hypotheses", Annals of Statistics 34(1), 373-393
 
 N. Meinshausen (2006)
 "False discovery control for multiple tests of association under general dependence", Scandinavian Journal of Statistics 33(2), 227-237
 
-Nicolai Meinshausen and Peter Buhlmann (2005)
+N. Meinshausen and P. Buhlmann (2005)
 "Lower bounds for the number of false null hypotheses for multiple testing of associations",
 Biometrika 92(4), 893-907 
 }
